@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Ambulance Dispatch Queue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="tag">EMERGENCY RESPONSE • QUEUE SIMULATOR</div>
+    <h1>Ambulance Dispatch Queue</h1>
+    <p>Register emergency calls, prioritize critical cases, and dispatch the next available ambulance.</p>
+  </header>
+
+  <main>
+    <section class="panel form-panel">
+      <h2>Register Emergency</h2>
+      <form id="callForm">
+        <label for="patient">Patient / Caller name</label>
+        <input id="patient" type="text" placeholder="e.g. Caller 01" required maxlength="50">
+        <label for="location">Location</label>
+        <input id="location" type="text" placeholder="e.g. Main Road" required maxlength="80">
+        <label for="severity">Emergency severity</label>
+        <select id="severity" required>
+          <option value="1">Critical — Priority 1</option>
+          <option value="2">Urgent — Priority 2</option>
+          <option value="3">Routine — Priority 3</option>
+        </select>
+        <button type="submit">Add to Queue</button>
+      </form>
+      <div class="note">Demo only: this is a classroom queue simulator, not a real emergency service.</div>
+    </section>
+
+    <section class="panel queue-panel">
+      <div class="section-head">
+        <div><h2>Waiting Queue</h2><p>Priority 1 is dispatched first. Earlier calls win ties.</p></div>
+        <span id="queueCount" class="count">0 waiting</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Call ID</th><th>Caller</th><th>Location</th><th>Priority</th><th>Action</th></tr></thead>
+          <tbody id="queueBody"><tr><td colspan="5" class="empty">No emergency calls in queue.</td></tr></tbody>
+        </table>
+      </div>
+      <button id="dispatchBtn" class="dispatch">Dispatch Next Ambulance</button>
+      <button id="resetBtn" class="secondary">Reset Demo</button>
+    </section>
+
+    <section class="panel history-panel">
+      <h2>Dispatch History</h2>
+      <ul id="historyList"><li class="empty">No calls dispatched yet.</li></ul>
+    </section>
+  </main>
+  <footer>Student mini project • Emergency Ambulance Dispatch Queue</footer>
+  <script src="script.js"></script>
+</body>
+</html>
